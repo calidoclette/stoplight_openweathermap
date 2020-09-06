@@ -184,8 +184,9 @@ paths:
         - schema:
             type: string
           in: query
-          name: Zip
+          name: zip
           description: '**Zip Code** Search by Zip Code. '
+          required: true
         - schema:
             type: string
           in: query
