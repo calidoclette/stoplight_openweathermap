@@ -129,6 +129,53 @@ paths:
                         icon:
                           type: string
                           description: internal parameter
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized_response'
+            application/xml:
+              schema:
+                type: object
+                properties: {}
+            multipart/form-data:
+              schema:
+                type: object
+                properties: {}
+            text/html:
+              schema:
+                type: object
+                properties: {}
+            text/plain:
+              schema:
+                type: object
+                properties: {}
+            application/EDI-X12:
+              schema:
+                type: object
+                properties: {}
+            application/EDIFACT:
+              schema:
+                type: object
+                properties: {}
+            application/atom+xml:
+              schema:
+                type: object
+                properties: {}
+            application/font-woff:
+              schema:
+                type: object
+                properties: {}
+            application/gzip:
+              schema:
+                type: object
+                properties: {}
+            application/javascript:
+              schema:
+                type: object
+                properties: {}
+          description: ''
+          headers: {}
       operationId: get-weather
       security:
         - app_id: []
@@ -155,7 +202,19 @@ paths:
           name: lat
           description: '**Latitude**'
 components:
-  schemas: {}
+  schemas:
+    unauthorized_response:
+      title: 401
+      type: object
+      description: ''
+      properties:
+        cod:
+          type: number
+        '':
+          type: string
+      required:
+        - cod
+        - ''
   securitySchemes:
     app_id:
       name: appid
