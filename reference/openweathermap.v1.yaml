@@ -20,11 +20,119 @@ paths:
       summary: weather
       tags:
         - Weather endpoints
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  coord:
+                    type: object
+                    description: ''
+                    properties:
+                      lon:
+                        type: number
+                        description: 'City geo location, longitude'
+                      lat:
+                        type: number
+                        description: 'City geo location, latitude'
+                  cod:
+                    type: number
+                    description: internal parameter
+                  name:
+                    type: string
+                    description: Name
+                  id:
+                    type: number
+                    description: City ID
+                  timezone:
+                    type: number
+                    description: The timezone for the station
+                  sys:
+                    type: object
+                    properties:
+                      type:
+                        type: number
+                        description: internal parameter
+                      id:
+                        type: number
+                        description: internal parameter
+                      country:
+                        type: string
+                        description: 'Country code (US, JP)'
+                      sunrise:
+                        type: number
+                        description: 'Sunrise time, UTC'
+                      sunset:
+                        type: number
+                        description: 'Sunset time, UTC'
+                  dt:
+                    type: number
+                    description: internal parameter
+                  clouds:
+                    type: object
+                    properties:
+                      all:
+                        type: number
+                        description: internal parameter
+                  wind:
+                    type: object
+                    properties:
+                      speed:
+                        type: number
+                        description: 'wind speed, in miles'
+                      deg:
+                        type: number
+                        description: 'Wind temperature, in degrees'
+                  visibility:
+                    type: number
+                    description: 'distance for visibility, in miles'
+                  main:
+                    type: object
+                    properties:
+                      temp:
+                        type: number
+                        description: 'temperature, in F '
+                      feels_like:
+                        type: number
+                        description: 'What the temperature feels like, in F'
+                      temp_min:
+                        type: number
+                        description: 'Maximum temperature of the day, in F'
+                      temp_max:
+                        type: number
+                        description: 'Minimum temperature of the day, in F'
+                      pressure:
+                        type: number
+                        description: Pressure in unit
+                      humidity:
+                        type: number
+                        description: 'Humidity, in percent'
+                  base:
+                    type: string
+                  weather:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: number
+                          description: internal parameter
+                        main:
+                          type: string
+                          description: internal parameter
+                        description:
+                          type: string
+                          description: internal parameter
+                        icon:
+                          type: string
+                          description: internal parameter
       operationId: get-weather
       security:
         - app_id: []
-      description: ''
+      description: Weather endpoints
       parameters:
         - schema:
             type: string
